@@ -44,7 +44,7 @@ public struct SettingsView: View {
                     }
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
-                            Button(isTestingAPI ? "测试中..." : "测试 API") {
+                            Button(isTestingAPI ? "连接测试中..." : "测试接口连接") {
                                 testAPI()
                             }
                             .disabled(isTestingAPI)
@@ -124,7 +124,7 @@ public struct SettingsView: View {
                 )
                 await MainActor.run {
                     apiTestSucceeded = true
-                    apiTestMessage = "测试成功：\(result.translatedText)"
+                    apiTestMessage = "接口连接成功：\(result.translatedText)"
                     isTestingAPI = false
                     onSave()
                 }
